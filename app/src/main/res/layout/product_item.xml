@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.patchanok.learning.mvpandroid.util.BindingUtil"/>
+        <variable
+            name="productItem"
+            type="com.patchanok.learning.mvpandroid.model.ProductDetail"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@{productItem.name}"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progressImagethumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:id="@+id/imageThumb"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:adjustViewBounds="true"
+                app:imageUrl="@{productItem.imageThumbUrl}"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/stockType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Stock : `+productItem.stockType}" />
+
+        <TextView
+            android:id="@+id/alcoholContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Alcohol : `+Integer.toString(productItem.alcoholContent)}" />
+
+    </LinearLayout>
+</layout>
